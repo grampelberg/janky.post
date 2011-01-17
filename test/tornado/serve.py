@@ -19,15 +19,14 @@ import tornado.web
 
 import janky_post
 
-class JankySyncHandler(tornado.web.RequestHandler):
+class JankySyncHandler(janky_post.Handler):
 
     def get(self):
-        pass
+        logging.info(self.get_argument('_origin'))
+        self.write({ "method": "get" })
 
-    @janky_post.handler
     def post(self):
-        logging.info(self.get_argument('bar'))
-        pass
+        self.write({ "method": "post" })
 
 class JankyAsyncHandler(tornado.web.RequestHandler):
     pass
