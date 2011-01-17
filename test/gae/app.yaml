@@ -6,4 +6,3 @@ api_version: 1
 handlers:
 - url: /.*
   script: api.py
-

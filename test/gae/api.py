@@ -7,16 +7,25 @@
 This is a really basic example of using the middleware to get janky.post
 working with GAE. Note that this is up and used as a demo (to make sure people
 have something to test against on the client side).
+
+See the readme at https://github.com/pyronicide/janky.post for more details.
 """
 
 __author__ = 'Thomas Rampelberg'
 __author_email__ = 'thomas@saunter.org'
 
 from google.appengine.ext import webapp
+from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
+
 import json
 
 class MainPage(webapp.RequestHandler):
+
+    def get(self):
+        self.response.out.write(template.render('static/index.html', {}))
+
+class APIPage(webapp.RequestHandler):
     def post(self):
         resp = { 'method': self.request.environ.get('REQUEST_METHOD') }
         resp.update(self.request.params)
@@ -24,8 +33,10 @@ class MainPage(webapp.RequestHandler):
 
     get = post
 
-application = webapp.WSGIApplication([('/', MainPage)],
-                                     debug=True)
+application = webapp.WSGIApplication(
+    [('/', MainPage),
+     ('/api', APIPage)],
+    debug=True)
 
 def main():
     run_wsgi_app(application)
