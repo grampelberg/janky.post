@@ -22,10 +22,11 @@ import janky_post
 class JankySyncHandler(janky_post.Handler):
 
     def get(self):
-        self.write({ "method": "get" })
+        self.write({ "method": "get", "foo": self.get_argument("foo", "none") })
 
     def post(self):
-        self.write({ "method": "post" })
+        self.write({ "method": "post", "foo": self.get_argument("foo", 
+                                                                "none") })
 
 class JankyAsyncHandler(janky_post.Handler):
     @tornado.web.asynchronous
