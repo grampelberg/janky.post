@@ -17,8 +17,8 @@ __author_email__ = 'thomas@saunter.org'
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-
 import json
+import time
 
 class MainPage(webapp.RequestHandler):
 
@@ -27,7 +27,9 @@ class MainPage(webapp.RequestHandler):
 
 class APIPage(webapp.RequestHandler):
     def post(self):
-        resp = { 'method': self.request.environ.get('REQUEST_METHOD') }
+        resp = { 'method': self.request.environ.get('REQUEST_METHOD'),
+                 'server_time': time.time()
+                 }
         resp.update(self.request.params)
         self.response.out.write(json.dumps(resp))
 
