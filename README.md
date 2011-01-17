@@ -57,10 +57,12 @@ with GET. Just add `method: "post"` to your janky options and you're set.
 
 # Getting setup
 
-On the client side, there's only one dependency for janky.post, json2.js (for
-IE support). You've probably already got json2.js added somewhere but if you
-don't, you can get it from [the source](http://json.org/json2.js). Then, just
-add janky.post to the script blocks of your page and you're ready to go.
+On the client side, there's only one dependency for janky.post: json2.js (for
+IE support). You've probably already have json2.js added somewhere on the page
+but if you don't, you can get it from [the
+source](http://json.org/json2.js). Then, just add janky.post to the script
+blocks of your page and you're ready to go. (Take a look in the lib directory
+for both the minified and the verbose versions).
 
     <script src="scripts/json2.js"></script>
     <script src="scripts/janky.post.min.js"></script>
@@ -111,22 +113,30 @@ A couple gotchas:
 
 1. The browser creates a hidden iframe with an empty source (still on the local
    domain).
+
 5. An `onload` event is attached to the iframe
+
 2. A form is added to the body of that iframe.
+
 3. The `action` parameter of the form is set to the remote server.
+
 4. For each k/v pair in `data` a hidden input is created inside this form.
-6. The form is submitted.
+
+6. The form is submitted (now on the remote domain).
+
 7. At this point, the iframe's location.href is on the remote server. This
    makes it so that the browser can't get at any data but the remote server's
    page can do anything it wants to the iframe's window.
-7. The server creates a page that sets window.name to the response and then
-   redirects back to the source domain.
+
+7. The remote server creates a page that sets window.name to the response and
+   then redirects back to the local domain.
+
 8. The `onload` event fires at this point and after a little house keeping
    calls your `success` method.
 
 The reason that this whole thing works has to do with how `window.name` is
 implemented. At a high level, `window.name` is not reset when a page changes,
-so when the page has been redirected back to the source domain, the full
+so when the page has been redirected back to the local domain, the full
 response can be fetched. There are limits on the response size using this
 method but the limits are somwhere in the 10mb range. Note that the only limits
 placed on requests themselves are the normal form limitations.
