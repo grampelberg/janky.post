@@ -1,0 +1,11 @@
+.settings
+*~
+*.diff
+*.patch
+build/
+.DS_Store
+*.pyc
+*.egg-info
+.#*
+*.svn/
+secret.js
