@@ -1,14 +1,16 @@
-To get the handler:
+To get the package:
 
-    pip install janky_post.tornado
+    pip install janky_post
+
+# Tornado
 
 Here's a canonical use of janky.post in Tornado:
 
-    import janky_post
+    import janky_post.tornado_handler
     import tornado.ioloop
     import tornado.web
 
-    class MainHandler(janky_post.Handler):
+    class MainHandler(janky_post.tornado_hander.Handler):
         def get(self):
             self.write({ "status": "ok", data: "foobar" })
 

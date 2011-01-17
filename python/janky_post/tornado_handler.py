@@ -6,11 +6,11 @@
 
 Here's a canonical use of janky.post in Tornado:
 
-    import janky_post
+    import janky_post.tornado_handler
     import tornado.ioloop
     import tornado.web
 
-    class MainHandler(janky_post.Handler):
+    class MainHandler(janky_post.tornado_handler.Handler):
         def get(self):
             self.write({ "status": "ok", data: "foobar" })
 
