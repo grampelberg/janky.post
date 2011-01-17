@@ -26,11 +26,42 @@ but they all have tradeoffs unfortunately:
   through. Just like JSONP, this is really easy on the client
   side. Unfortunately, IE6/7 are completely unsupported and IE8 needs a bunch
   of special treatment that isn't implemented in common libraries. It also
-  requires some header hackery that isn't the easiest thing in the world.
+  requires some header hackery that isn't the easiest thing in the
+  world. Finally, these requests are actually 2 requests in sequence (one to
+  get the Access-Control restrictions, the second to actually send the
+  request). This just adds latency to your users that they don't need.
 
 - Flash/Silverlight - These are probably the easiest of all
   (unfortunately). You can just put a crossdomain.xml file at the remote
   server's root and you're good to go. The obvious drawbacks however, are that
   you now are requiring the use of flash or sliverlight for simple
   client/server communication.
+
+janky.post tries to fix some of these drawbacks. Here's a quick example of
+doing a cross domain request from your local page:
+
+    janky({ url: "http://example.com:8080/api", 
+            data: { foo: 'bar', baz: [1,2,3] }, 
+            success: function(resp) {
+              console.log('server responded with: ' + resp);
+            }, 
+            error: function() {
+              console.log('error =(');
+            }
+    });
+
+That example basically replicates a JSONP result (but you'll notice that
+there's actually errors that occur, no firing requests into the ether). The
+other cool feature that janky.post gets you is the ability to do POST along
+with GET. Just add `method: "post"` to your janky options and you're set.
+
+# Getting setup
+
+On the client side, there's only one dependency for janky.post, json2.js (for
+IE support). You've probably already got json2.js added somewhere but if you
+don't, you can get it from [the source](http://json.org/json2.js). Then, just
+add janky.post to the script blocks of your page and you're ready to go.
+
+    <script src="scripts/json2.js"></script>
+    <script src="scripts/janky.post.min.js"></script>
 
