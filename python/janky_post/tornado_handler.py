@@ -50,6 +50,6 @@ class Handler(tornado.web.RequestHandler):
         self._write_buffer = template.generate(
             resp=json.dumps("".join(self._write_buffer)),
             origin=json.dumps(urlparse.urljoin(self.get_argument('_origin'),
-                                               '/janky')))
+                                               '/janky.html')))
 
         return tornado.web.RequestHandler.finish(self, *args, **kwargs)
