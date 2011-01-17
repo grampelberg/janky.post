@@ -17,7 +17,7 @@ import urlparse
 tmpl = """
 <html><head></head>
 <body><script type="text/javascript">
-  window.name = {{ resp }}; 
+  window.name = {{ resp }};
   location.href = {{ origin }};
 </script></body></html>
 """
@@ -29,8 +29,8 @@ class Handler(tornado.web.RequestHandler):
     def finish(self, *args, **kwargs):
         self.set_header('Content-Type', 'text/html; charset=UTF-8')
         self._write_buffer = template.generate(
-            resp=json.dumps("".join(self._write_buffer)), 
-            origin=json.dumps(urlparse.urljoin(self.get_argument('_origin'), 
+            resp=json.dumps("".join(self._write_buffer)),
+            origin=json.dumps(urlparse.urljoin(self.get_argument('_origin'),
                                                '/dne')))
-        
+
         return tornado.web.RequestHandler.finish(self, *args, **kwargs)

@@ -22,14 +22,25 @@ import janky_post
 class JankySyncHandler(janky_post.Handler):
 
     def get(self):
-        logging.info(self.get_argument('_origin'))
         self.write({ "method": "get" })
 
     def post(self):
         self.write({ "method": "post" })
 
-class JankyAsyncHandler(tornado.web.RequestHandler):
-    pass
+class JankyAsyncHandler(janky_post.Handler):
+    @tornado.web.asynchronous
+    def get(self):
+        self.write({ "method": "get" })
+        self.foo()
+
+    @tornado.web.asynchronous
+    def post(self):
+        self.write({ "method": "post" })
+        self.foo()
+
+    def foo(self):
+        self.finish()
+
 
 def config():
     define('port', default=5000, type=int, help='Port to listen on.')
