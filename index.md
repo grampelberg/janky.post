@@ -1,9 +1,3 @@
----
-title: janky.post
-layout: default
----
-
-
 # What is this?
 
 janky.post is a javascript library that simplifies cross-domain
@@ -114,6 +108,8 @@ There's only one function call - `janky(settings)`. The settings are:
 The list of server side support currently includes:
 
 - [Tornado](https://github.com/pyronicide/janky.post/tree/master/python)
+- [Google App Engine](https://github.com/pyronicide/janky.post/tree/master/python)
+
 
 Please tell me if you implement the server side support for any framework so
 that I can add it to the list.
