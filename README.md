@@ -70,7 +70,7 @@ source](http://json.org/json2.js). Then, just add janky.post to the script
 blocks of your page and you're ready to go. (Take a look in the lib directory
 for both the minified and the verbose versions).
 
-    <script src="scripts/json2.js"></script>
+    <script src="http://saunter.org/janky.post/scripts/json2.js"></script>
     <script src="http://saunter.org/janky.post/lib/janky.post.min.js"></script>
 
 # Using janky.post
