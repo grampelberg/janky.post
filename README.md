@@ -1,3 +1,9 @@
+# What is this?
+
+janky.post is a javascript library that simplifies cross-domain
+request/response communication using regular GET/POST for the request and an
+easy to implement response format.
+
 # Why, for goodness sakes, why?!?
 
 By default, javascript keeps you pretty tied down security wise. You can only
