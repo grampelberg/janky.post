@@ -67,6 +67,36 @@ for both the minified and the verbose versions).
     <script src="scripts/json2.js"></script>
     <script src="scripts/janky.post.min.js"></script>
 
+# Using janky.post
+
+There's only one function call - `janky(settings)`. The settings are:
+
+- url - Location to send the request to
+
+- data - An object containing key/value pairs to send to the server. The values
+  can be anything that is JSON serializable.
+
+- method - The method to use. For now, this is either GET or POST.
+
+- success - Function to call with the response's result. This is called with
+  the JSON parsed results of the respons from the remote server.
+
+- error - If any errors occur once the request has been issued, this will be
+  called. At the moment, there are no arguments to this.
+
+## Example
+
+    janky({ url: "http://example.com:8080/foo/bar",
+            data: { style: 'foo', ninja: true },
+            method: "post",
+            success: function(resp) {
+              console.log('server response: ' + resp);
+            },
+            error: function() {
+              console.log('there was an error');
+            }
+    });
+
 # Server side support
 
 The list of server side support currently includes:
