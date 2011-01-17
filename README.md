@@ -70,10 +70,8 @@ source](http://json.org/json2.js). Then, just add janky.post to the script
 blocks of your page and you're ready to go. (Take a look in the lib directory
 for both the minified and the verbose versions).
 
-    {% highlight html %}
     <script src="http://saunter.org/janky.post/scripts/json2.js"></script>
     <script src="http://saunter.org/janky.post/lib/janky.post.min.js"></script>
-    {% endhighlight %}
 
 # Using janky.post
 
@@ -94,7 +92,6 @@ There's only one function call - `janky(settings)`. The settings are:
 
 ## Example
 
-    {% highlight js %}
     janky({ url: "http://example.com:8080/foo/bar",
             data: { style: 'foo', ninja: true },
             method: "post",
@@ -105,7 +102,6 @@ There's only one function call - `janky(settings)`. The settings are:
               console.log('there was an error');
             }
     });
-    {% endhighlight %}
 
 # Server side support
 
@@ -126,7 +122,6 @@ like to skip to the instant howto ....
 As a response, instead of sending back the normal response, you need to send
 back:
 
-    {% highlight html %}
     <html>
     <head></head>
     <body>
@@ -136,7 +131,6 @@ back:
         </script>
     </body>
     </html>
-    {% endhighlight %}
 
 A couple gotchas:
 
