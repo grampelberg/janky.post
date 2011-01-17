@@ -14,10 +14,10 @@ See the readme at https://github.com/pyronicide/janky.post for more details.
 __author__ = 'Thomas Rampelberg'
 __author_email__ = 'thomas@saunter.org'
 
+from django.utils import simplejson as json
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-import json
 import time
 
 class MainPage(webapp.RequestHandler):
