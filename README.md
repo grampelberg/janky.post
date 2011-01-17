@@ -106,3 +106,27 @@ A couple gotchas:
   to `http://example.com:8080/janky`. It is important that this gets set this
   way (so that there's a 404 generated and the other server doesn't need to
   send any more data).
+
+# How it all works
+
+1. The browser creates a hidden iframe with an empty source (still on the local
+   domain).
+5. An `onload` event is attached to the iframe
+2. A form is added to the body of that iframe.
+3. The `action` parameter of the form is set to the remote server.
+4. For each k/v pair in `data` a hidden input is created inside this form.
+6. The form is submitted.
+7. At this point, the iframe's location.href is on the remote server. This
+   makes it so that the browser can't get at any data but the remote server's
+   page can do anything it wants to the iframe's window.
+7. The server creates a page that sets window.name to the response and then
+   redirects back to the source domain.
+8. The `onload` event fires at this point and after a little house keeping
+   calls your `success` method.
+
+The reason that this whole thing works has to do with how `window.name` is
+implemented. At a high level, `window.name` is not reset when a page changes,
+so when the page has been redirected back to the source domain, the full
+response can be fetched. There are limits on the response size using this
+method but the limits are somwhere in the 10mb range. Note that the only limits
+placed on requests themselves are the normal form limitations.

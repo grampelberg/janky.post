@@ -14,3 +14,7 @@ Here's a canonical use of janky.post in Tornado:
         ])
         application.listen(8888)
         tornado.ioloop.IOLoop.instance().start()
+
+Take a look at the actual [test
+server](https://github.com/pyronicide/janky.post/blob/master/test/tornado/serve.py)
+if there's any confusion.
