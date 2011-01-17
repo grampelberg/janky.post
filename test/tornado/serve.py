@@ -3,23 +3,22 @@
 #
 
 """
-Test the janky decorator.
+Test the janky request handler.
 """
 
 __author__ = 'Thomas Rampelberg'
 __author_email__ = 'thomas@saunter.org'
 
 import logging
-import time
 import tornado.httpclient
 import tornado.httpserver
 import tornado.ioloop
 from tornado.options import define, options
 import tornado.web
 
-import janky_post
+import janky_post.tornado_handler
 
-class JankySyncHandler(janky_post.Handler):
+class JankySyncHandler(janky_post.tornado_handler.Handler):
 
     def get(self):
         self.write({ "method": "get", "foo": self.get_argument("foo", "none") })
@@ -28,7 +27,7 @@ class JankySyncHandler(janky_post.Handler):
         self.write({ "method": "post", "foo": self.get_argument("foo", 
                                                                 "none") })
 
-class JankyAsyncHandler(janky_post.Handler):
+class JankyAsyncHandler(janky_post.tornado_handler.Handler):
     @tornado.web.asynchronous
     def get(self):
         self.write({ "method": "get" })

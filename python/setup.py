@@ -9,7 +9,7 @@ Make doing janky cross domain communication easy.
 __author__ = 'Thomas Rampelberg'
 __author_email__ = 'thomas@saunter.org'
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name = "janky_post",
@@ -17,6 +17,5 @@ setup(
     author = __author__,
     author_email = __author_email__,
     description = "Makes janky cross-domain communication easy",
-    install_requires = [ "pycurl", "tornado" ],
-    py_modules = ['janky_post']
+    packages = find_packages()
 )

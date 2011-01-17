@@ -1,3 +1,7 @@
+To get the handler:
+
+    pip install janky_post.tornado
+
 Here's a canonical use of janky.post in Tornado:
 
     import janky_post
