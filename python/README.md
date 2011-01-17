@@ -24,3 +24,19 @@ Here's a canonical use of janky.post in Tornado:
 Take a look at the actual [test
 server](https://github.com/pyronicide/janky.post/blob/master/test/tornado/serve.py)
 if there's any confusion.
+
+# Google App Engine
+
+To make use of this, create a file called `appengine_config.py` in the root of
+your app's directory. Then, add this:
+
+    import janky_post.gae
+
+    def webapp_add_wsgi_middleware(app):
+        app = janky_post.gae.JankyMiddleware(app)
+        return app
+
+When you do a normal `self.response.out.write()` call, make sure to serialize
+your response with `json.dumps()` first. To see something working, you can
+check out [the
+demo](https://github.com/pyronicide/janky.post/tree/master/test/gae).
