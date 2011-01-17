@@ -1,3 +1,8 @@
+---
+title: janky.post
+layout: default
+---
+
 # What is this?
 
 janky.post is a javascript library that simplifies cross-domain
