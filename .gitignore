@@ -10,3 +10,4 @@ build/
 *.svn/
 secret.js
 dist/
+_site/
