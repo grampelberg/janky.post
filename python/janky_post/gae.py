@@ -24,8 +24,8 @@ See the readme at https://github.com/pyronicide/janky.post for more details.
 __author__ = 'Thomas Rampelberg'
 __author_email__ = 'thomas@saunter.org'
 
+from django.utils import simplejson as json
 from google.appengine.ext import webapp
-import json
 import logging
 import urlparse
 
