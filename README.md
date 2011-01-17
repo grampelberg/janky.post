@@ -71,7 +71,7 @@ for both the minified and the verbose versions).
 
 The list of server side support currently includes:
 
-- [Tornado](https://github.com/pyronicide/janky.post/tree/master/tornado)
+- [Tornado](https://github.com/pyronicide/janky.post/tree/master/python)
 
 Please tell me if you implement the server side support for any framework so
 that I can add it to the list.

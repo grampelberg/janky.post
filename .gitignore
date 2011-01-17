@@ -9,3 +9,4 @@ build/
 .#*
 *.svn/
 secret.js
+dist/
