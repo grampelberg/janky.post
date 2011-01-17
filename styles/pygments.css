@@ -1,0 +1,63 @@
+.highlight .js .hll { background-color: #ffffcc }
+.highlight .js .c { color: #A84; font-style: italic } /* Comment */
+.highlight .js .err { border: 1px solid #FF0000 } /* Error */
+.highlight .js .k { color: #A6F; } /* Keyword */
+.highlight .js .o { color: #666666 } /* Operator */
+.highlight .js .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.highlight .js .cp { color: #007020 } /* Comment.Preproc */
+.highlight .js .c1 { color: #AA4; font-style: italic } /* Comment.Single */
+.highlight .js .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.highlight .js .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .js .ge { font-style: italic } /* Generic.Emph */
+.highlight .js .gr { color: #FF0000 } /* Generic.Error */
+.highlight .js .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .js .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .js .go { color: #808080 } /* Generic.Output */
+.highlight .js .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .js .gs { font-weight: bold } /* Generic.Strong */
+.highlight .js .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .js .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .js .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.highlight .js .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.highlight .js .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.highlight .js .kp { color: #007020 } /* Keyword.Pseudo */
+.highlight .js .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.highlight .js .kt { color: #902000 } /* Keyword.Type */
+.highlight .js .m { color: #40a070 } /* Literal.Number */
+.highlight .js .s { color: #4070a0 } /* Literal.String */
+.highlight .js .na { color: #4070a0 } /* Name.Attribute */
+.highlight .js .nb { color: #007020 } /* Name.Builtin */
+.highlight .js .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.highlight .js .no { color: #60add5 } /* Name.Constant */
+.highlight .js .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.highlight .js .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.highlight .js .ne { color: #007020 } /* Name.Exception */
+.highlight .js .nf { color: #06287e } /* Name.Function */
+.highlight .js .nl { color: #002070; font-weight: bold } /* Name.Label */
+.highlight .js .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.highlight .js .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.highlight .js .nv { color: #bb60d5 } /* Name.Variable */
+.highlight .js .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.highlight .js .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .js .mf { color: #40a070 } /* Literal.Number.Float */
+.highlight .js .mh { color: #40a070 } /* Literal.Number.Hex */
+.highlight .js .mi { color: #40a070 } /* Literal.Number.Integer */
+.highlight .js .mo { color: #40a070 } /* Literal.Number.Oct */
+.highlight .js .sb { color: #4070a0 } /* Literal.String.Backtick */
+.highlight .js .sc { color: #4070a0 } /* Literal.String.Char */
+.highlight .js .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.highlight .js .s2 { color: #69C } /* Literal.String.Double */
+.highlight .js .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.highlight .js .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.highlight .js .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.highlight .js .sx { color: #c65d09 } /* Literal.String.Other */
+.highlight .js .sr { color: #888 } /* Literal.String.Regex */
+.highlight .js .s1 { color: #69C } /* Literal.String.Single */
+.highlight .js .ss { color: #517918 } /* Literal.String.Symbol */
+.highlight .js .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .js .vc { color: #bb60d5 } /* Name.Variable.Class */
+.highlight .js .vg { color: #bb60d5 } /* Name.Variable.Global */
+.highlight .js .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.highlight .js .il { color: #40a070 } /* Literal.Number.Integer.Long */
+.highlight .js .p  { color: #8F8 } /* points, parens, brackets */
+.highlight .js .nx { color: #EEE } /* Default */
