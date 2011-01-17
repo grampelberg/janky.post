@@ -133,7 +133,7 @@ back:
     <body>
         <script type="text/javascript">
             window.name = "json serialized string containing the response";
-            location.href = "_origin domain from request + /janky.html";
+            location.href = "_origin domain from request + /janky";
         </script>
     </body>
     </html>
