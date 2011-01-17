@@ -23,7 +23,7 @@ import json
 class MainPage(webapp.RequestHandler):
 
     def get(self):
-        self.response.out.write(template.render('static/index.html', {}))
+        self.redirect('http://saunter.org/janky.post')
 
 class APIPage(webapp.RequestHandler):
     def post(self):
