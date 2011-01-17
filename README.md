@@ -65,3 +65,44 @@ add janky.post to the script blocks of your page and you're ready to go.
     <script src="scripts/json2.js"></script>
     <script src="scripts/janky.post.min.js"></script>
 
+# Server side support
+
+The list of server side support currently includes:
+
+- [Tornado](https://github.com/pyronicide/janky.post/tree/master/tornado)
+
+Please tell me if you implement the server side support for any framework so
+that I can add it to the list.
+
+## Implementing server side support in your own framework
+
+I'd suggest taking a look at how this whole thing works first. But, if you'd
+like to skip to the instant howto ....
+
+As a response, instead of sending back the normal response, you need to send
+back:
+
+    <html>
+    <head></head>
+    <body>
+        <script type="text/javascript">
+            window.name = "json serialized string containing the response";
+            location.href = "_origin domain from request + /janky";
+        </script>
+    </body>
+    </html>
+
+A couple gotchas:
+
+- The content-type needs to be `text/html`. If you try to do
+  `application/json`, bad things happen.
+
+- Make sure that your response has been serialized via. JSON as the client
+  library will be expecting that.
+
+- There is an `_origin` parameter added to every request. Take the root domain
+  of that and then add `/janky`. For example, if
+  `_origin=http://example.com:8080/foo/bar.html`, you would set `location.href`
+  to `http://example.com:8080/janky`. It is important that this gets set this
+  way (so that there's a 404 generated and the other server doesn't need to
+  send any more data).
