@@ -6,7 +6,6 @@
 
 $(function() {
   $("form").submit(function() {
-    try {
     janky({
       url: 'http://localhost:5000/api',
       method: 'post',
@@ -23,7 +22,6 @@ $(function() {
         $("h2:contains(Output)").after(elem);
       }
     });
-    } catch(err) { console.log(err) }
     return false;
   });
 });
