@@ -5,9 +5,12 @@ layout: demo
 
 # janky.post demo!
 
-This demo will send a POST request to another server and then display the
-response. Fill out the form with whatever text you'd like, it will end up being
-echo'd back to you.
+This demo will send a POST request from `http://saunter.org/` to
+`http://api.jankypost.com` and then display the response. Fill out the form
+with whatever text you'd like, it will end up being echo'd back to you.
+
+After you've played around with this a bit, make sure you get your browser's
+console out and see what you can do.
 
 ## Input
 
@@ -24,6 +27,8 @@ echo'd back to you.
 ## Output
 
 # Code
+
+You can also [download the code](http://saunter.org/janky.post/test/demo.js).
 
     {% highlight js %}
     $(function() {
