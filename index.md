@@ -68,6 +68,12 @@ there's actually errors that occur, no firing requests into the ether). The
 other cool feature that janky.post gets you is the ability to do POST along
 with GET. Just add `method: "post"` to your janky options and you're set.
 
+# Demo!
+
+Take some time to play around with [the
+demo](http://saunter.org/janky.post/demo). It should give you a good idea of
+what you can do with janky.post.
+
 # Getting setup
 
 On the client side, there's only one dependency for janky.post: json2.js (for
@@ -80,6 +86,19 @@ for both the minified and the verbose versions).
     {% highlight html %}
     <script src="http://saunter.org/janky.post/scripts/json2.js"></script>
     <script src="http://saunter.org/janky.post/lib/janky.post.min.js"></script>
+    {% endhighlight %}
+
+## Demo server
+
+To aid in testing the client side of this, once you've added the two scripts
+above to your pages, try using the demo server to see if everything's working
+right. To use the demo server, you do something like the following:
+
+    {% highlight js %}
+    janky({ url: "http://api.jankypost.com/api",
+            data: { ninja: false, robot: true },
+            success: function(resp) { console.log(resp) }
+    });
     {% endhighlight %}
 
 # Using janky.post
