@@ -7,7 +7,7 @@
 $(function() {
   $("form").submit(function() {
     janky({
-      url: 'http://localhost:5000/api',
+      url: 'http://api.jankypost.com/api',
       method: 'post',
       data: {
         one: $("input[name=one]").val(),
