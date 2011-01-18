@@ -35,3 +35,11 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 code {
   margin: 0;
 }
+
+.download h2 {
+   text-align: center;
+}
+
+.download h2 a {
+   text-decoration: none;
+}
