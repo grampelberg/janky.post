@@ -54,7 +54,7 @@ class JankyMiddleware(object):
                         'resp': json.dumps(body), 
                         'origin': json.dumps(urlparse.urljoin(
                                 webapp.Request(environ).get('_origin'), 
-                                '/janky'))
+                                '/janky.html'))
                         }
                 write(body)
             return my_write

@@ -6,8 +6,9 @@
 
 $(function() {
   $("form").submit(function() {
+    try {
     janky({
-      url: 'http://api.jankypost.com/api',
+      url: 'http://192.168.1.215:5000/api',
       method: 'post',
       data: {
         one: $("input[name=one]").val(),
@@ -22,6 +23,7 @@ $(function() {
         $("h2:contains(Output)").after(elem);
       }
     });
+    } catch(err) { console.log(err) }
     return false;
   });
 });
