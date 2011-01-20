@@ -79,6 +79,9 @@ for both the minified and the verbose versions).
     <script src="http://saunter.org/janky.post/scripts/json2.js"></script>
     <script src="http://saunter.org/janky.post/lib/janky.post.min.js"></script>
 
+Note that if you're supporting IE6/7, make sure you also add an empty, static
+page at http://local_server/janky.html.
+
 ## Demo server
 
 To aid in testing the client side of this, once you've added the two scripts
@@ -144,7 +147,8 @@ back:
     <body>
         <script type="text/javascript">
             window.name = "json serialized string containing the response";
-            location.href = "_origin domain from request + /janky";
+            window.parent.postMessage ? window.parent.postMessage(window.name, "*") :
+                location.href = "_origin domain from request + /janky.html";
         </script>
     </body>
     </html>
@@ -158,11 +162,10 @@ A couple gotchas:
   library will be expecting that.
 
 - There is an `_origin` parameter added to every request. Take the root domain
-  of that and then add `/janky`. For example, if
+  of that and then add `/janky.html`. For example, if
   `_origin=http://example.com:8080/foo/bar.html`, you would set `location.href`
-  to `http://example.com:8080/janky`. It is important that this gets set this
-  way (so that there's a 404 generated and the other server doesn't need to
-  send any more data).
+  to `http://example.com:8080/janky.html`. It is important that this gets set
+  this way (so that IE6/7 have a page to redirect back to for the iframe).
 
 # How it all works
 
@@ -183,15 +186,20 @@ A couple gotchas:
    makes it so that the browser can't get at any data but the remote server's
    page can do anything it wants to the iframe's window.
 
-7. The remote server creates a page that sets window.name to the response and
-   then redirects back to the local domain.
+8. The remove server creates a web page that calls window.parent.postMessage().
 
-8. The `onload` event fires at this point and after a little house keeping
-   calls your `success` method.
+9. The `message` (or `onmessage`) event in the parent frame (local server)
+   fires and your `success` method is called.
 
-The reason that this whole thing works has to do with how `window.name` is
-implemented. At a high level, `window.name` is not reset when a page changes,
-so when the page has been redirected back to the local domain, the full
-response can be fetched. There are limits on the response size using this
-method but the limits are somwhere in the 10mb range. Note that the only limits
-placed on requests themselves are the normal form limitations.
+For some discussion on postMessage, take a look at
+[MDC](https://developer.mozilla.org/En/DOM/Window.postMessage).
+
+Note that for IE6 and 7 there's a different method used. Instead of using
+postMessage, `window.name` is used. This means that the request goes to the
+remote server which then redirects back to the local server. The reason that
+this works has to do with how `window.name` is implemented. At a high level,
+`window.name` is not reset when a page changes, so when the page has been
+redirected back to the local domain, the full response can be fetched. There
+are limits on the response size using this method but the limits are somwhere
+in the 10mb range. Note that the only limits placed on requests themselves are
+the normal form limitations.
