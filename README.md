@@ -80,7 +80,7 @@ for both the minified and the verbose versions).
     <script src="http://saunter.org/janky.post/lib/janky.post.min.js"></script>
 
 Note that if you're supporting IE6/7, make sure you also add an empty, static
-page at http://local_server/janky.html.
+page at `http://local_server/janky.html`.
 
 ## Demo server
 
