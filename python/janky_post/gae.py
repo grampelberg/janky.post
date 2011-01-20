@@ -35,7 +35,8 @@ class JankyMiddleware(object):
     tmpl = """<html><head></head><body>
 <script type="text/javascript">
   window.name = %(resp)s;
-  location.href = %(origin)s;
+  window.parent.postMessage ? window.parent.postMessage(%(resp)s, "*") :
+    location.href = %(origin)s;
 </script>
 </body></html>
 """
@@ -54,7 +55,7 @@ class JankyMiddleware(object):
                         'resp': json.dumps(body), 
                         'origin': json.dumps(urlparse.urljoin(
                                 webapp.Request(environ).get('_origin'), 
-                                '/janky'))
+                                '/janky.html'))
                         }
                 write(body)
             return my_write

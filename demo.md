@@ -20,7 +20,7 @@ console out and see what you can do.
   <input type="text" name="one" />
   <label for="two">two</label>
   <input type="text" name="two" />
-  <button>Send Data</button>
+  <input type="submit" value="Send Data" />
   </fieldset>
 </form>
 

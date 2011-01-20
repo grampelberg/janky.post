@@ -6,9 +6,8 @@
 
 $(function() {
   $("form").submit(function() {
-    try {
     janky({
-      url: 'http://api.jankypost.com/api',
+      url: 'http://192.168.1.215:5000/api',
       method: 'post',
       data: {
         one: $("input[name=one]").val(),
@@ -17,13 +16,13 @@ $(function() {
       },
       success: function(resp) {
         var elem = $("<pre><code></code></pre>");
-        var str = JSON.stringify(resp).split(',').join(',\r\n    ').split(
-          '{').join('{\r\n    ').split('}').join('\r\n}');
+        var str = JSON.stringify(resp).split(',').join(
+          ',<br>&nbsp;&nbsp;&nbsp;&nbsp;').split(
+          '{').join('{<br>&nbsp;&nbsp;&nbsp;&nbsp;').split('}').join('<br>}');
         elem.find("code").html(str);
         $("h2:contains(Output)").after(elem);
       }
     });
-    } catch(err) { console.log(err) }
     return false;
   });
 });
