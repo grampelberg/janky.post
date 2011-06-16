@@ -203,3 +203,30 @@ redirected back to the local domain, the full response can be fetched. There
 are limits on the response size using this method but the limits are somwhere
 in the 10mb range. Note that the only limits placed on requests themselves are
 the normal form limitations.
+
+# Gotchas
+
+Internet Explorer blocks cookies from iframes, so if you're setting cookies
+on the remote server you must add a P3P header for IE to accept the cookie.
+
+More info: http://adamyoung.net/IE-Blocking-iFrame-Cookies
+
+## PHP:
+
+	header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+
+	
+## ASP.NET:
+
+	HttpContext.Current.Response.AddHeader("p3p","CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\"");
+
+
+## Django:
+
+	response = render_to_response('mytemplate.html')
+	response["P3P"] = 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"'
+
+	
+## JSP:
+
+	response.addHeader("P3P","CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\"")
